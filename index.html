@@ -340,6 +340,7 @@
                     //文件处于根目录
                     if(PathList.length==2){                  
                         let rfile = document.createElement("p");
+                        rfile.setAttribute("class",'topnav');
                         rfile.innerHTML = `<p style='padding-left:10px;'>${fileName}</p><p>${fileSize}KB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
                         if (fileSize >= 1024) {
                         fileSize = (fileSize / 1024).toFixed(1);
