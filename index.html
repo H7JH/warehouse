@@ -1,49 +1,390 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HJH的私人blog</title>
-    <link rel="shortcut icon" href="img/tou.png">
-    <style>  
-      body {
-        margin: 0;
-      }
+<html lang="UTF-8">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Honi的文件仓库</title>
+    <!-- Font Awesome Icons -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!-- Google Fonts  -->
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet"
+    />
+    <!-- 引入jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+          height: 100vh;  
+          background-image: linear-gradient(to bottom, rgb(86, 71, 117), #000, #000);
+          background-repeat:no-repeat;
+          background-attachment:fixed;
+        }
+        .tree{
+            background-color: #17104bd7;
+            width: 100%;
+            max-width: auto;
+            position: relative;
+            margin: auto;
+            box-shadow: 0 1.25em 2.18em rgba(51, 33, 33, 0.637);
+            padding: 20px 30px;
+            border-radius: 6px;
+            color: rgb(255, 255, 255);
+        }
+        details details{
+            margin-left: 20px;
+            padding: 5px 0;
+            color: rgb(255, 255, 255);
+        }
+        p{
+            margin: 0;
+            line-height: 30px;
+            padding-left: 15px;
+            color: rgb(255, 255, 255);
+        }
+        .shell {
+            position:relative; 
+            width: 100%;
+            height: 100vh;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: relative
+        }
+
+        .content h2 {
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 999;
+            margin-top: 300px;
+            color: rgba(255, 255, 255, 0.9);
+            -webkit-text-stroke: #000 2px;
+            font: 600 100px '优设标题黑';
+        }
+
+        .images {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .images div {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            position: absolute;
+        }
+
+        .img1 {
+            background-image: url('./img/1.png');
+        }
+
+        .img2 {
+            background-image: url('./img/2.png');
+        }
+
+        .img3 {
+            background-image: url('./img/3.png');
+        }
+
+        .img4 {
+            background-image: url('./img/4.png');
+        }
+
+        .img5 {
+            background-image: url('./img/5.png');
+        }
+
+        .img6 {
+            background-image: url('./img/6.png');
+            transform: translate(600px,400px);
+        }
+        .container {
+        background-color: #0602249d;
+        width: 100%;
+        max-width: auto;
+        position: relative;
+        margin: auto;
+        padding: 1px 1.25em;
+        border-radius: 0.43em;
+        box-shadow: 0 1.25em 2.18em rgba(255, 255, 255, 0.3);
+        }
+        a{
+        color: rgb(255, 253, 253);
+        text-decoration:none;
+        }
+
+        label {
+        display: block;
+        position: relative;
+        font-size: 1.12em;
+        font-weight: 500;
+        text-align: center;
+        width: 18em;
+        padding: 0.12em 0;
+        margin: auto;
+        border-radius: 0.31em;
+        cursor: pointer;
+        }
+        #num-of-files {
+        font-weight: 400;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        margin: 0.5em 0 0.5em 0;
+        }
+        ul {
+        list-style-type: none;
+        }
+        .container li {
+        font-weight: 500;
+        background-color: #030411;  
+        color: #ffffff;
+        margin-bottom: 1em;
+        border-radius: 0.3em;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        }
+        /* 创建两列 */
+        /* Left column */
+        .leftcolumn {   
+        float: left;
+        width: 25%;
+        position: fixed;
+        padding-top: 100px;
+        padding-left: 100px;
+        
+        }
+        
+        /* 右侧栏 */
+        .rightcolumn {
+        float: right;
+        width: 70%;
+        padding-top: 100px;
+        padding-right: 100px;
+        padding-left: 0px;
+        }
+        /* 列后面清除浮动 */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+ 
     </style>
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-    <script>LA.init({id: "Job2Y30HTNKXtuFJ",ck: "Job2Y30HTNKXtuFJ"})</script>
-  </head>
-  <body>
-    <div style="
-      background-color: #f1f1f1;
-      text-align: center;
-      padding: 40px;
-    ">
-      <img src="img/tou.png" alt="hjh" width="80px" height="80px">
+</head>
+
+<body>
+    <!--背景-->
+    <div class="shell" style="position: fixed;">
+        <div class="content">
+            <div class="images">
+                <div class="img1"></div>
+                <div class="img2"></div>
+                <div class="img3"></div>
+                <div class="img4"></div>
+                <div class="img5"></div>
+                <div class="img6"></div>
+            </div>
+        </div>
     </div>
-    <div style="
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 15px;
-      line-height: 1.7;
-    ">
-      <p>欢迎来的黄俊浩的私人blog</p>
-      <p>我是练习时长两年半的编程练习生</p>
-      <p>我会python,unityC#,html</p>
-      <p>最后我会继续学习向往的知识！</p>
-      <a href="https://h7jh.github.io/university/">我的目标院校</a>
-      <a href="https://www.midorg.com/h.html">HTML在线工具</a>
-      <p>Over</p>
-      <p></p>
+
+    <script>
+        let img1 = document.querySelector('.img1')
+        let img3 = document.querySelector('.img3')
+        let img4 = document.querySelector('.img4')
+        let img5 = document.querySelector('.img5')
+        // 设置鼠标移动时触发的效果
+        document.addEventListener('mousemove',e=>{
+            // 获取鼠标的位置
+            let mouseX = e.clientX
+            let mouseY = e.clientY
+            // 获取图片距离左侧和顶部的距离
+            let img1x = img1.offsetLeft
+            let img1y = img1.offsetTop
+
+            let img3x = img3.offsetLeft
+            let img3y = img3.offsetTop
+
+            let img4x = img4.offsetLeft
+            let img4y = img4.offsetTop
+
+            let img5x = img5.offsetLeft
+            let img5y = img5.offsetTop
+            // 设置移动时的偏移量
+            let diff1x = (mouseX-img1x)/45
+            let diff1y = (mouseY-img1y)/45
+
+            let diff3x = (mouseX-img3x)/18
+            let diff3y = (mouseY-img3y)/18
+
+            let diff4x = (mouseX-img4x)/30
+            let diff4y = (mouseY-img4y)/30
+
+            let diff5x = (mouseX-img5x)/8
+            let diff5y = (mouseY-img5y)/8
+
+            img1.style.transform = `translate(${diff1x}px,${diff1y}px)`
+            img3.style.transform = `translate(${diff3x}px,${diff3y}px)`
+            img4.style.transform = `translate(${diff4x}px,${diff4y}px)`
+            img5.style.transform = `translate(${diff5x}px,${diff5y}px)`
+        })
+    </script>
+    <!--页面控件-->
+    <div class="row" style=" z-index:2;">
+        <div class="leftcolumn">
+        <div style="
+            background-color: rgb(15, 5, 41,0.7);
+            text-align: center;
+            padding-top: 20px;
+            border-radius: 0.43em;
+            
+            ">
+            <img src="img/tou.png" alt="hjh" width="80px" height="80px">
+            <p style="color:#fefeff9d;
+                    padding: 20px;
+            ">
+            Welcome to Honi's file sharing repository, feel free to pick the files you need.<br><br>QWQ
+            </p>
+        </div>
+        </div>
+    
+        <div class="rightcolumn">
+            <div class="container">
+                <div id="num-of-files">No Files</div>
+                <ul id="files-list">
+                </ul>
+            </div>
+            <div class="tree">
+                <!--根控件-->
+                <details id="root">
+                </details>
+            </div>
+        </div>
     </div>
-    <div style="
-      background-color: #f1f1f1;
-      text-align: center;
-      padding: 40px;
-      font-size: 12px;  
-    ">
-      <p>版权所有: ©H7JH.github.com</p>
-    </div>
-  </body>
+
+    <script>
+        //方法二
+        var Ajax = function () {
+            $.getJSON("./save.json", function (Data) {
+            displayData(Data)//传入一个函数
+        });
+        }();
+        //此方法只能在内部访问数据
+
+        //根目录控件
+        let root = document.getElementById("root");
+        root.innerHTML = "<summary><span>download</span></summary>";
+
+        var displayData= function(Data){
+            let numOfFiles = document.getElementById("num-of-files");
+            numOfFiles.textContent = `${Data.length} Files In Share`;
+            for (i of Data) {
+          
+                //基本量
+                let fileName = i.name;
+                let filepath = i.path;
+                let PathList = filepath.split('/');
+                let PPath = '';
+                let Path = filepath.substring(0, filepath.lastIndexOf('/'));    //对应文件的送入details的id
+                let fileSize = (i.size / 1024).toFixed(1);
+                
+                let idx = 0;
+                while(idx<PathList.length-1){
+
+                    //文件处于根目录
+                    if(PathList.length==2){                  
+                        let rfile = document.createElement("p");
+                        //rfile.setAttribute("id",fileName);
+                        rfile.innerHTML = `<a href=${filepath} download=${filepath}>${fileName}</a><p>${fileSize}KB</p>`;
+                        if (fileSize >= 1024) {
+                        fileSize = (fileSize / 1024).toFixed(1);
+                        rfile.innerHTML = `<a href=${filepath} download=${filepath}>${fileName}</a><p>${fileSize}MB</p>`;
+                        }
+                        root.appendChild(rfile);                            
+                        
+                    }
+                    //文件位于多级目录
+                    if(PathList.length>2&&idx!=0){
+                        PPath = PPath + '/' + PathList[idx];  //这个作为文件夹id
+                        //console.log(PPath);
+                        //console.log(PathList[idx+1]);
+                        //console.log(idx);
+                        
+                        //如果文件夹不存在
+                        if(document.getElementById(PPath)==null){
+                            //console.log('文件夹不存在');
+                            //位于根目录下的文件夹
+                            if(idx==1){
+                                let rdir = document.createElement("details");
+                                rdir.setAttribute("id",PPath);
+                                rdir.innerHTML = `<summary><span>${PathList[idx]}</span></summary>`;
+                                root.appendChild(rdir); 
+                            }
+                            //位于多级文件夹
+                            if(idx>1){
+                                let sdir = document.createElement("details");
+                                let fdir = document.getElementById(PPath.substring(0, PPath.lastIndexOf('/')))
+                                sdir.setAttribute("id",PPath);
+                                sdir.innerHTML = `<summary><span>${PathList[idx]}</span></summary>`;
+                                fdir.appendChild(sdir); 
+
+                            }
+                            console.log(fileName);
+                            let rfile = document.createElement("p");
+                            //rfile.setAttribute("id",fileName);
+                            rfile.innerHTML = `<a href=${filepath} download=${filepath}>${fileName}</a><p>${fileSize}KB</p>`;
+                            if (fileSize >= 1024) {
+                            fileSize = (fileSize / 1024).toFixed(1);
+                            rfile.innerHTML = `<a href=${filepath} download=${filepath}>${fileName}</a><p>${fileSize}MB</p>`;
+                            }
+                            let dir = document.getElementById(PPath);
+                            dir.appendChild(rfile); 
+
+                        }
+                        //如果文件夹存在
+                        /*
+                        if(document.getElementById(PPath)){
+                            //console.log(PPath);
+                            console.log(fileName);
+                            let rfile = document.createElement("p");
+                            //rfile.setAttribute("id",fileName);
+                            rfile.innerHTML = `<p>${fileName}</p><p>${fileSize}KB</p>`;
+                            if (fileSize >= 1024) {
+                            fileSize = (fileSize / 1024).toFixed(1);
+                            rfile.innerHTML = `<p>${fileName}</p><p>${fileSize}MB</p>`;
+                            }
+                            let dir = document.getElementById(PPath);
+                            dir.appendChild(rfile); 
+                        }
+                        */
+                    }
+                             
+                    idx++;
+                }
+                
+            }
+
+        }
+    </script>
+</body>
+
 </html>
