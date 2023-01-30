@@ -50,6 +50,14 @@
             padding: 5px 0;
             color: rgb(255, 255, 255);
         }
+
+        .rowChange span{
+                width: 100% !important;
+                float: left !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                white-space: normal !important;
+        }
         p{
             font-weight: 500;
             background-color: #030411;   
@@ -341,10 +349,10 @@
                     if(PathList.length==2){                  
                         let rfile = document.createElement("p");
                         rfile.setAttribute("class",'topnav');
-                        rfile.innerHTML = `<p style='padding-left:10px;'>${fileName}</p><p>${fileSize}KB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
+                        rfile.innerHTML = `<p style='padding-left:10px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>${fileName}</p><p style='padding-left:10px;'>${fileSize}KB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
                         if (fileSize >= 1024) {
                         fileSize = (fileSize / 1024).toFixed(1);
-                        rfile.innerHTML = `<p style='padding-left:10px;'>${fileName}</p><p>${fileSize}MB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
+                        rfile.innerHTML = `<p style='padding-left:10px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>${fileName}</p><p style='padding-left:10px;'>${fileSize}MB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
                         }
                         root.appendChild(rfile);                            
                         
@@ -363,7 +371,7 @@
                             if(idx==1){
                                 let rdir = document.createElement("details");
                                 rdir.setAttribute("id",PPath);
-                                rdir.innerHTML = `<summary><span>${PathList[idx]}</span></summary>`;
+                                rdir.innerHTML = `<summary><span class="rowChange">${PathList[idx]}</span></summary>`;
                                 root.appendChild(rdir); 
                             }
                             //位于多级文件夹
@@ -371,18 +379,19 @@
                                 let sdir = document.createElement("details");
                                 let fdir = document.getElementById(PPath.substring(0, PPath.lastIndexOf('/')))
                                 sdir.setAttribute("id",PPath);
-                                sdir.innerHTML = `<summary><span>${PathList[idx]}</span></summary>`;
+                                sdir.innerHTML = `<summary><span class="rowChange">${PathList[idx]}</span></summary>`;
                                 fdir.appendChild(sdir); 
 
                             }
                             console.log(fileName);
                             let rfile = document.createElement("p");
                             //rfile.setAttribute("id",fileName);
+                            
                             rfile.setAttribute("class",'topnav');
-                            rfile.innerHTML = `<p style='padding-left:10px;'>${fileName}</p><p>${fileSize}KB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
+                            rfile.innerHTML = `<p style='padding-left:10px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>${fileName}</p><p style='padding-left:10px;'>${fileSize}KB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
                             if (fileSize >= 1024) {
                             fileSize = (fileSize / 1024).toFixed(1);
-                            rfile.innerHTML = `<p style='padding-left:10px;'>${fileName}</p><p>${fileSize}MB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
+                            rfile.innerHTML = `<p style='padding-left:10px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>${fileName}</p><p style='padding-left:10px;'>${fileSize}MB<a href=${filepath} download=${filepath} style='padding-left:10px; padding-right:10px;'>下载</a></p>`;
                             }
                             let dir = document.getElementById(PPath);
                             dir.appendChild(rfile); 
